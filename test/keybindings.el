@@ -13,6 +13,3 @@
 (global-set-key (kbd ("C-j") 'backward-char)
 (global-unset-key (kbd ("C-l"))
 (global-set-key (kbd ("C-l") 'forward-char)
-		     
-
-		     

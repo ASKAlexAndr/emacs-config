@@ -7,8 +7,3 @@
    '("melpa" . "http://melpa.milkbox.net/packages/")
    t))
 
-
-(require 'command-log-mode)
-(add-hook 'LaTeX-mode-hook 'command-log-mode)
-
-(load-file "./keybindings.el")

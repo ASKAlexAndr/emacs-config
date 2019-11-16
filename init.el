@@ -1,20 +1,29 @@
+;; System-type definition
+(defun system-is-linux()
+  (string-equal system-type "gnu/linux"))
+(defun system-is-windows()
+  (string-equal system-type "windows-nt"))
 
-;; Added by Package.el.  This must come before configurations of
-;; installed packages.  Don't delete this line.  If you don't want it,
-;; just comment it out by adding a semicolon to the start of the line.
-;; You may delete these explanatory comments.
-(package-initialize)
+;; My name and e-mail adress
+(setq user-full-name   "Alexandr Korotkov")
+(setq user-mail-adress "ask.97.alexandr@gmail.com")
+
+;; Electric-modes settings
+(electric-pair-mode    1) ;; autoclose {},[],()
+(electric-indent-mode -1) ;; autotab
+
+;; Backups
+(setq make-backup-files nil)
+
+;; Line numbers
+(global-display-line-numbers-mode)
+
+;; reload emacs configuration
+(defun reload-init-file ()
+  (interactive)
+  (load-file "~/.emacs.d/init.el"))
+
+(global-set-key (kbd "C-c r") 'reload-init-file) 
 
 (load-file "~/.emacs.d/test/start.el")
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(package-selected-packages (quote (command-log-mode xah-fly-keys))))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- )
+;;(load-file "~/.emacs.d/test/keybindings.el")

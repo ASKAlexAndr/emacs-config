@@ -1,12 +1,21 @@
-;; System-type definition
-(defun system-is-linux()
-  (string-equal system-type "gnu/linux"))
-(defun system-is-windows()
-  (string-equal system-type "windows-nt"))
-
 ;; My name and e-mail adress
 (setq user-full-name   "Alexandr Korotkov")
 (setq user-mail-adress "ask.97.alexandr@gmail.com")
+
+(require 'package)
+(add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
+(package-initialize)
+
+(when (not package-archive-contents)
+  (package-refresh-contents))
+
+(defvar my-packages '()
+  "A list of packages to ensure are installed at launch.")
+
+(dolist (p my-packages)
+  (when (not (package-installed-p p))
+    (package-install p)))
+
 
 ;; Electric-modes settings
 (electric-pair-mode    1) ;; autoclose {},[],()
@@ -25,5 +34,16 @@
 
 (global-set-key (kbd "C-c r") 'reload-init-file) 
 
-(load-file "~/.emacs.d/test/start.el")
-;;(load-file "~/.emacs.d/test/keybindings.el")
+;; load vendor and custom files
+(defvar emacs-dir (file-name-directory load-file-name)
+  "top level emacs dir")
+
+(defvar module-dir (concat emacs-dir "modules/")
+  "The core of my emacs config")
+
+;; Add to load path
+(add-to-list 'load-path module-dir)
+
+;; Require packages in modules/
+(mapc 'load (directory-files module-dir nil "^[^#].*el$"))
+(server-start)

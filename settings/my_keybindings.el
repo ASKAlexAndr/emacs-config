@@ -176,4 +176,11 @@
 (global-set-key (kbd "C-c b") 'revert-buffer)
 
 
+;; reload emacs configuration
+(defun reload-init-file ()
+  (interactive)
+  (load-file "~/.emacs.d/init.el"))
+
+(global-set-key (kbd "C-c r") 'reload-init-file) 
+
 (provide 'my_keybindings)

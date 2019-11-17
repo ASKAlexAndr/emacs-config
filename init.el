@@ -1,49 +1,29 @@
-;; My name and e-mail adress
-(setq user-full-name   "Alexandr Korotkov")
-(setq user-mail-adress "ask.97.alexandr@gmail.com")
-
-(require 'package)
-(add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
 (package-initialize)
 
-(when (not package-archive-contents)
-  (package-refresh-contents))
+(add-to-list 'load-path (expand-file-name "settings" user-emacs-directory))
+(add-to-list 'load-path (expand-file-name "packages" user-emacs-directory))
+(add-to-list 'load-path (expand-file-name "themes" user-emacs-directory))
+(require 'afternoon-theme)
+(require 'my_keybindings)
+(require 'my_settings)
+(require 'my_packages)
+(require 'my_hooks)
 
-(defvar my-packages '()
-  "A list of packages to ensure are installed at launch.")
-
-(dolist (p my-packages)
-  (when (not (package-installed-p p))
-    (package-install p)))
-
-
-;; Electric-modes settings
-(electric-pair-mode    1) ;; autoclose {},[],()
-(electric-indent-mode -1) ;; autotab
-
-;; Backups
-(setq make-backup-files nil)
-
-;; Line numbers
-(global-display-line-numbers-mode)
-
-;; reload emacs configuration
-(defun reload-init-file ()
-  (interactive)
-  (load-file "~/.emacs.d/init.el"))
-
-(global-set-key (kbd "C-c r") 'reload-init-file) 
-
-;; load vendor and custom files
-(defvar emacs-dir (file-name-directory load-file-name)
-  "top level emacs dir")
-
-(defvar module-dir (concat emacs-dir "modules/")
-  "The core of my emacs config")
-
-;; Add to load path
-(add-to-list 'load-path module-dir)
-
-;; Require packages in modules/
-(mapc 'load (directory-files module-dir nil "^[^#].*el$"))
 (server-start)
+
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(global-display-line-numbers-mode t)
+ '(package-selected-packages
+   (quote
+    (flymake memoize cl-lib jsonrpc async auto-complete material-theme)))
+ '(show-paren-mode t))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )

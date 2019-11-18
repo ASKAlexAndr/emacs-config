@@ -18,6 +18,8 @@
         company-mode
         company-flx
         company-restclient
+        jedi-core
+        company-jedi
         font-lock+
         smart-mode-line
         js2-mode

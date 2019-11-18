@@ -1,4 +1,6 @@
 ;; keybindings
+;; Switch window
+(global-set-key (kbd "<C-tab>") 'other-window)
 ;; Up
 (global-unset-key (kbd "C-i"))
 (global-set-key (kbd "C-i") 'previous-line)

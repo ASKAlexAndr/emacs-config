@@ -70,6 +70,10 @@
                                  '(progn
                                     (my-change-company-backends 'company-capf)))
 ))
+(defun my/python-mode-hook ()
+  (add-to-list 'company-backends 'company-jedi))
+
+(add-hook 'python-mode-hook 'my/python-mode-hook)
 ;; End Python mode
 
 ;; Json mode

@@ -4,3 +4,4 @@
        :pkgname "domtronn/all-the-icons.el"
        :load-path ("." "fonts")
        :depends (font-lock+ dash))
+;;M-x all-the-icons-install-fonts

@@ -10,6 +10,9 @@
 (menu-bar-mode 1)
 (tool-bar-mode 1)
 
+;; Save session
+(desktop-save-mode 1)
+
 ;; Backups
 (setq make-backup-files        nil) ;; backup files
 (setq auto-save-list-file-mode nil) ;; .saves files

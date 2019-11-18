@@ -16,5 +16,7 @@ abbrev_defs
 tutorial
 el-get
 *.dat
-*.eld
-*.eld
+**.eld
+*.desktop
+.emacs.desktop.lock
+projectile-bookmarks.eld

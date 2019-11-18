@@ -5,6 +5,9 @@
                                       (setq company-backends (list comp-back)))
 )
 
+;; prog-mode
+(add-hook 'prog-mode-hook
+          (lambda () (yafolding-mode)))
 ;; ElDoc
 (add-hook 'emacs-lisp-mode-hook 'eldoc-mode)
 (add-hook 'lisp-interaction-mode-hook 'eldoc-mode)

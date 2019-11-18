@@ -28,6 +28,7 @@
         neotree
         yasnippet
         yasnippet-snippets
+        yafolding
 	)             
 )
 

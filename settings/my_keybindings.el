@@ -5,11 +5,15 @@
 (global-unset-key (kbd "C-i"))
 (global-set-key (kbd "C-i") 'previous-line)
 ;; Right
+(global-unset-key (kbd "C-f"))
 (global-unset-key (kbd "C-k"))
 (global-set-key (kbd "C-k") 'next-line)
+(global-set-key (kbd "C-.") 'right-char)
 ;; Left
+(global-unset-key (kbd "C-b"))
 (global-unset-key (kbd "C-j"))
 (global-set-key (kbd "C-j") 'backward-char)
+(global-set-key (kbd "C-,") 'left-char)
 ;; Down
 (global-unset-key (kbd "C-l"))
 (global-set-key (kbd "C-l") 'forward-char)
@@ -141,39 +145,14 @@
     (indent-according-to-mode)))
 (global-set-key (kbd "C-c o") 'open-previous-line)
 
-
-;; tab indent or complete
-(defun check-expansion ()
-  (save-excursion
-    (if (looking-at "\\_>") t
-      (backward-char 1)
-      (if (looking-at "\\.") t
-        (backward-char 1)
-        (if (looking-at "->") t nil)))))
-
 (defun do-yas-expand ()
   (let ((yas/fallback-behavior 'return-nil))
     (yas/expand)))
-
-(defun tab-indent-or-complete ()
-  (interactive)
-  (message (minibufferp))
-  (if (minibufferp)
-      (minibuffer-complete)
-    (if (or (not yas/minor-mode)
-            (null (do-yas-expand)))
-        (if (check-expansion)
-            (company-complete-common)
-          (indent-for-tab-command)))))
 
 (defun my-kill-emacs-with-save ()
   (interactive)
   (save-buffers-kill-terminal "y")
 )
-
-(global-unset-key [tab])
-(global-set-key [tab] 'tab-indent-or-complete)
-(global-set-key (kbd "<backtab>") 'tab-indent-or-complete)
 
 (global-set-key (kbd "C-c b") 'revert-buffer)
 

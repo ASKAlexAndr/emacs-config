@@ -3,18 +3,11 @@
       '(
         el-get
         all-the-icons
-        json-mode
         flycheck
         expand-region
-        emmet-mode
-        magit     
         markdown-mode
-        web-mode  
+        magit     
         restclient
-        less-css-mode
-        helm      
-        helm-projectile
-        helm-swoop
         company-mode
         company-flx
         company-restclient
@@ -23,7 +16,6 @@
         font-lock+
         smart-mode-line
         js2-mode
-        avy
         projectile
         neotree
         yasnippet

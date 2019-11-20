@@ -1,13 +1,18 @@
 (package-initialize)
 
 (add-to-list 'load-path (expand-file-name "settings" user-emacs-directory))
-(add-to-list 'load-path (expand-file-name "packages" user-emacs-directory))
 (add-to-list 'load-path (expand-file-name "themes" user-emacs-directory))
+
+(require 'my_packages)
 (require 'afternoon-theme)
 (require 'my_settings)
-(require 'my_packages)
 (require 'my_hooks)
 (require 'my_keybindings)
+
+
+(defvar module-dir  "~/.emacs.d/settings/modules")
+(add-to-list 'load-path module-dir)
+(mapc 'load (directory-files module-dir nil "^[^#].*el$"))
 
 (server-start)
 

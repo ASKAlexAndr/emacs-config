@@ -21,6 +21,11 @@
         yasnippet
         yasnippet-snippets
         yafolding
+        smart-tabs-mode
+        emmet-mode
+        helm      
+        helm-projectile
+        helm-swoop
 	)             
 )
 
@@ -60,7 +65,7 @@
   (require 'el-get)
   (el-get 'sync))
 
-(add-to-list 'el-get-recipe-path "~/.emacs.d/packages/recipes")
+(add-to-list 'el-get-recipe-path "~/.emacs.d/settings/recipes")
 
 (el-get 'sync package-list)
 

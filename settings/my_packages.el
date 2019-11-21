@@ -1,78 +1,67 @@
 (require 'package)
-(setq package-list
-      '(
-        el-get
-        all-the-icons
-        flycheck
-        expand-region
-        markdown-mode
-        magit     
-        restclient
-        company-mode
-        company-flx
-        company-restclient
-        jedi-core
-        company-jedi
-        font-lock+
-        smart-mode-line
-        js2-mode
-        projectile
-        neotree
-        yasnippet
-        yasnippet-snippets
-        yafolding
-        smart-tabs-mode
-        emmet-mode
-        helm      
-        helm-projectile
-        helm-swoop
-	)             
-)
 
-(when (executable-find "python")
-    (add-to-list 'package-list 'pip-requirements)
-    (when (executable-find "autopep8")
-      (add-to-list 'package-list 'py-autopep8)
-      )
-    (add-to-list 'package-list 'py-isort)
-    ;(when (executable-find "virtualenv")
-    ;  (add-to-list 'package-list 'auto-virtualenv))
+(add-to-list 'package-archives '("melpa-stable" . "http://stable.melpa.org/packages/"))
+(add-to-list 'package-archives '("melpa"        . "http://melpa.org/packages/"))
+(setq package-enable-at-startup nil)
+(package-initialize nil)
 
-    ;; (when (executable-find "virtualenvwrapper")
-    ;;   (add-to-list 'package-list 'auto-virtualenvwrapper))
-)
-
-;; for gnu repository
-(setq package-check-signature nil)
-;; bug fix for gnu
-(setq gnutls-algorithm-priority "NORMAL:-VERS-TLS1.3")
-
-(add-to-list 'package-archives '("elpa" . "https://elpa.gnu.org/packages/") t)
-(add-to-list 'package-archives '("org" . "https://orgmode.org/elpa/") t)
-(add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
-
-(package-initialize)
-(add-to-list 'load-path "~/.emacs.d/el-get/el-get")
-(unless (require 'el-get nil t)
+(unless (package-installed-p 'use-package)
+  (message "EMACS install use-package.el")
   (package-refresh-contents)
-  (package-install 'el-get)
-  (package-install 'async)
-  (package-install 'jsonrpc)
-  (package-install 'cl-lib)
-  (package-install 'memoize)
-  (package-install 'flymake)
-  (message "require is")
-  (require 'el-get)
-  (el-get 'sync))
+  (package-install 'use-package))
 
-(add-to-list 'el-get-recipe-path "~/.emacs.d/settings/recipes")
+(require 'use-package)
+(setq use-package-always-ensure t)
 
-(el-get 'sync package-list)
+;; (setq package-list
+;;       '(
+;;         el-get
+;;         all-the-icons
+;;         flycheck
+;;         expand-region
+;;         markdown-mode
+;;         magit     
+;;         restclient
+;;         company-mode
+;;         company-flx
+;;         company-restclient
+;;         jedi-core
+;;         company-jedi
+;;         font-lock+
+;;         smart-mode-line
+;;         js2-mode
+;;         projectile
+;;         neotree
+;;         yasnippet
+;;         yasnippet-snippets
+;;         yafolding
+;;         smart-tabs-mode
+;;         emmet-mode
+;;         helm      
+;;         helm-projectile
+;;         helm-swoop
+;; 	)             
+;; )
 
-(require 'el-get-elpa)
-;; Build the El-Get copy of the package.el packages if we have not
-;; built it before.  Will have to look into updating later ...
-(unless (file-directory-p el-get-recipe-path-elpa)
-  (el-get-elpa-build-local-recipes))
 
+(defvar module-dir  "~/.emacs.d/settings/modules")
+
+(defun load-user-file (file)
+  (interactive "f")
+  "Load a file in current user's configuration directory"
+  (load-file (expand-file-name file module-dir)))
+
+(load-user-file "company.el")
+(load-user-file "all-the-icons.el")
+(load-user-file "neotree.el")
+(load-user-file "yasnippet.el")
+(load-user-file "projectile.el")
+(load-user-file "yafolding.el")
+(load-user-file "helm.el")
+(load-user-file "magit.el")
+(load-user-file "flycheck.el")
+(load-user-file "web-mode.el")
+(load-user-file "web-beautify.el")
+(load-user-file "emmet-mode.el")
+(load-user-file "python.el")
 (provide 'my_packages)

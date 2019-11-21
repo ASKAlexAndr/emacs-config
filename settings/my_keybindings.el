@@ -164,4 +164,8 @@
 
 (global-set-key (kbd "C-c r") 'reload-init-file) 
 
+;; emacs comment
+(global-set-key (kbd "C-x /") 'comment-or-uncomment-region)
+
+
 (provide 'my_keybindings)

@@ -8,7 +8,7 @@
 
 ;; Bar-modes
 (menu-bar-mode 1)
-(tool-bar-mode 1)
+(tool-bar-mode -1)
 
 ;; Save session
 (desktop-save-mode 1)

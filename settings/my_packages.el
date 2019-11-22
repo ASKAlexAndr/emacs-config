@@ -64,4 +64,5 @@
 (load-user-file "web-beautify.el")
 (load-user-file "emmet-mode.el")
 (load-user-file "python.el")
+(load-user-file "multiple-cursors.el")
 (provide 'my_packages)

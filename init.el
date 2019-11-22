@@ -1,11 +1,10 @@
 (add-to-list 'load-path (expand-file-name "settings" user-emacs-directory))
 (add-to-list 'load-path (expand-file-name "themes" user-emacs-directory))
 
-(require 'my_keybindings)
 (require 'my_packages)
 (require 'my_settings)
 (require 'my_hooks)
-
+(require 'my_keybindings)
 (server-start)
 
 (custom-set-variables

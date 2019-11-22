@@ -1,7 +1,9 @@
 (use-package emmet-mode
   :diminish (emmet-mode . "ε")
-  :bind* (("C-)" . emmet-next-edit-point)
-          ("C-(" . emmet-prev-edit-point))
+  :bind*  (("C-)" . emmet-next-edit-point)
+          ("C-(" . emmet-prev-edit-point)
+          ("C-b" . emmet-expand-line)
+)
   :commands (emmet-mode
              emmet-next-edit-point
              emmet-prev-edit-point)
@@ -12,6 +14,6 @@
   ;; Auto-start on any markup modes
   (add-hook 'sgml-mode-hook 'emmet-mode)
   (add-hook 'web-mode-hook 'emmet-mode)
-  (define-key emmet-mode-keymap (kbd "C-b") 'emmet-expand-line)
+  (define-key emmet-mode-keymap(kbd "C-j") nil)
 )
 

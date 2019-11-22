@@ -145,15 +145,6 @@
     (indent-according-to-mode)))
 (global-set-key (kbd "C-c o") 'open-previous-line)
 
-(defun do-yas-expand ()
-  (let ((yas/fallback-behavior 'return-nil))
-    (yas/expand)))
-
-(defun my-kill-emacs-with-save ()
-  (interactive)
-  (save-buffers-kill-terminal "y")
-)
-
 (global-set-key (kbd "C-c b") 'revert-buffer)
 
 

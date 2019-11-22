@@ -1,6 +1,37 @@
 ;; keybindings
+
+;; TAB
+
+;; tab indent or complete
+(defun check-expansion ()
+  (save-excursion
+    (if (looking-at "\\_>") t
+      (backward-char 1)
+      (if (looking-at "\\.") t
+        (backward-char 1)
+        (if (looking-at "->") t nil)))))
+
+(defun do-yas-expand ()
+  (let ((yas/fallback-behavior 'return-nil))
+    (yas/expand)))
+
+(defun tab-indent-or-complete ()
+  (interactive)
+  (message (minibufferp))
+  (if (minibufferp)
+      (minibuffer-complete)
+    (if (or (not yas/minor-mode)
+            (null (do-yas-expand)))
+        (if (check-expansion)
+            (company-complete-common)
+          (indent-for-tab-command)))))
+
+(global-unset-key [tab])
+(global-set-key [tab] 'tab-indent-or-complete)
+(global-set-key (kbd "<backtab>") 'tab-indent-or-complete)
+
 ;; Switch window
-(global-set-key (kbd "<C-tab>") 'other-window)
+(global-set-key (kbd "M-o") 'other-window)
 ;; Up
 (global-unset-key (kbd "C-i"))
 (global-set-key (kbd "C-i") 'previous-line)
@@ -38,7 +69,7 @@
 ;; Undo
 (global-unset-key (kbd "C-z"))
 (global-set-key (kbd "C-z") 'undo)
-
+            
 ;; Move text
 (defun move-text-internal (arg)
   (cond
@@ -123,30 +154,6 @@
 (global-set-key (kbd "RET") 'newline)
 (global-set-key (kbd "M-RET") 'newline-and-indent)
 
-(defvar newline-and-indent t)
-
-;; open new line (vi's o command)
-(defun open-next-line ()
-  (interactive)
-  (end-of-line)
-  (open-line 1)
-  (next-line 1)
-  (when newline-and-indent
-    (indent-according-to-mode)))
-(global-set-key (kbd "M-o") 'open-next-line)
-
-;; Behave like vi's O command
-(defun open-previous-line (arg)
-  "Open a new line before the current one. See also `newline-and-indent'."
-  (interactive "p")
-  (beginning-of-line)
-  (open-line arg)
-  (when newline-and-indent
-    (indent-according-to-mode)))
-(global-set-key (kbd "C-c o") 'open-previous-line)
-
-(global-set-key (kbd "C-c b") 'revert-buffer)
-
 
 ;; reload emacs configuration
 (defun reload-init-file ()
@@ -157,6 +164,5 @@
 
 ;; emacs comment
 (global-set-key (kbd "C-x /") 'comment-or-uncomment-region)
-
 
 (provide 'my_keybindings)

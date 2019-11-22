@@ -14,6 +14,6 @@
   ;; Auto-start on any markup modes
   (add-hook 'sgml-mode-hook 'emmet-mode)
   (add-hook 'web-mode-hook 'emmet-mode)
-  (define-key emmet-mode-keymap(kbd "C-j") nil)
+  (define-key emmet-mode-keymap (kbd "C-j") nil)
 )
 

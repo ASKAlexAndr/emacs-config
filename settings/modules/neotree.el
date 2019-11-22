@@ -6,7 +6,7 @@
     (:map neotree)
    )
   :init
-  (setq neo-window-width 35)
+  (setq neo-window-width 30)
   :config
   (progn (setq neo-smart-open nil)
   (setq neo-theme (if (display-graphic-p)   'icons 'arrow))

@@ -28,6 +28,7 @@
 ;; Delete selection
 (delete-selection-mode t)
 
+
 ;; Indent settings
 (setq-default indent-tabs-mode      nil
               tab-width             4
@@ -46,6 +47,8 @@
 (setq scroll-step             1
       scroll-margin           10
       scroll-conservatively   10000)
+
+
 
 ;; Coding-system settings
 (set-language-environment               'UTF-8)
@@ -67,10 +70,6 @@
 (if (equal nil (equal major-mode 'org-mode))
     (windmove-default-keybindings 'meta))
 
-(recentf-mode 1)
-(setq recentf-max-menu-items      150
-      recentf-max-saved-items     550)
-
 ;; Show paren
 (setq show-paren-delay 0
       show-paren-style 'expression)
@@ -78,9 +77,6 @@
 
 (setq ns-pop-up-frames          nil
       ad-redefinition-action    'accept)
-
-;;(if (fboundp 'global-font-lock-mode)
-;;    (global-font-lock-mode -1))
 
 ;; Russian
 (cl-loop

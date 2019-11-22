@@ -15,7 +15,7 @@
  '(global-display-line-numbers-mode t)
  '(package-selected-packages
    (quote
-    (multiple-cursors flymake memoize cl-lib jsonrpc async auto-complete material-theme)))
+    (py-isort elpy multiple-cursors flymake memoize cl-lib jsonrpc async auto-complete material-theme)))
  '(show-paren-mode t))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.

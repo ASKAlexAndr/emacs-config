@@ -1,17 +1,19 @@
-(use-package
-  python
-  :mode ("\\.py'" . python-mode)
-  :init (progn
-          (defalias 'python2-mode 'python-mode)
-          (defalias 'python3-mode 'python-mod))
-  :config (setq-default py-separator-char 47) ;; Use spaces instead tab
-  (setq-default python-indent-offset 4) ;; 4 spaces instead 2 for python-mode
-  )
-
-(use-package
-  py-autopep8
-  :init (progn (add-hook 'python-mode-hook 'py-autopep8-enable-on-save)))
-
-(use-package
-  pyvenv
-  :config (defalias 'workon 'pyvenv-workon))
+(use-package python-mode
+  :mode ("\\.py\\'" . python-mode)
+  :init(add-hook 'python-mode-hook #'elpy-enable)
+  :config
+  (use-package elpy
+    :bind
+    ("M-," . elpy-goto-definition)
+    :init
+    (elpy-enable)
+    (defalias 'workon 'pyvenv-workon)
+    :config
+    (add-to-list 'company-backends 'elpy-company-backend)
+    (elpy-enable))
+  (use-package py-autopep8
+    :hook
+    (python-mode . py-autopep8-enable-on-save))
+  (use-package py-isort
+    :init
+    (add-hook 'before-save-hook #'py-isort-before-save)))

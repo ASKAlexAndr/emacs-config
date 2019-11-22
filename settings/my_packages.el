@@ -65,4 +65,5 @@
 (load-user-file "emmet-mode.el")
 (load-user-file "python.el")
 (load-user-file "multiple-cursors.el")
+(load-user-file "smart-tabs-mode.el")
 (provide 'my_packages)

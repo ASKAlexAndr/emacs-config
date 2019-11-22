@@ -48,7 +48,6 @@
 
 (defun load-user-file (file)
   (interactive "f")
-  "Load a file in current user's configuration directory"
   (load-file (expand-file-name file module-dir)))
 
 (load-user-file "company.el")
@@ -66,4 +65,22 @@
 (load-user-file "python.el")
 (load-user-file "multiple-cursors.el")
 (load-user-file "smart-tabs-mode.el")
+(load-user-file "fonts.el")
+
+
+(defvar themes-dir  "~/.emacs.d/settings/themes")
+
+(defun load-user-theme (file)
+  (interactive "f")
+  (load-file (expand-file-name file themes-dir)))
+
+;;Themes
+(load-user-theme "switch-theme.el")
+
+(load-user-theme "cyberpank-theme.el")
+(load-user-theme "doom-theme.el")
+(load-user-theme "monokai-theme.el")
+(load-user-theme "waher.el")
+(load-user-theme "material.el")
+
 (provide 'my_packages)

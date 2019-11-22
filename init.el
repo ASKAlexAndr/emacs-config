@@ -12,7 +12,12 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(doom-molokai-brighter-comments t)
  '(global-display-line-numbers-mode t)
+ '(jdee-db-active-breakpoint-face-colors (cons "#1B2229" "#fd971f"))
+ '(jdee-db-requested-breakpoint-face-colors (cons "#1B2229" "#b6e63e"))
+ '(jdee-db-spec-breakpoint-face-colors (cons "#1B2229" "#525254"))
+ '(objed-cursor-color "#e74c3c")
  '(package-selected-packages
    (quote
     (py-isort elpy multiple-cursors flymake memoize cl-lib jsonrpc async auto-complete material-theme)))

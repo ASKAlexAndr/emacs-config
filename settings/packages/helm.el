@@ -1,6 +1,6 @@
 (use-package helm
   :ensure t
-  :bind (("M-a" . helm-M-x)
+  :bind (("M-x" . helm-M-x)
          ("C-x C-f" . helm-find-files)
          ("C-x f" . helm-recentf)
          ("C-SPC" . helm-dabbrev)
@@ -28,3 +28,7 @@
                  (window-height   . 0.4)))
   :diminish (helm-mode))
 )
+
+(use-package helm-projectile
+  :ensure t
+  :config (helm-projectile-on))

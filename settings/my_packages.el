@@ -13,60 +13,30 @@
 (require 'use-package)
 (setq use-package-always-ensure t)
 
-;; (setq package-list
-;;       '(
-;;         el-get
-;;         all-the-icons
-;;         flycheck
-;;         expand-region
-;;         markdown-mode
-;;         magit     
-;;         restclient
-;;         company-mode
-;;         company-flx
-;;         company-restclient
-;;         jedi-core
-;;         company-jedi
-;;         font-lock+
-;;         smart-mode-line
-;;         js2-mode
-;;         projectile
-;;         neotree
-;;         yasnippet
-;;         yasnippet-snippets
-;;         yafolding
-;;         smart-tabs-mode
-;;         emmet-mode
-;;         helm      
-;;         helm-projectile
-;;         helm-swoop
-;; 	)             
-;; )
+(defvar package-dir  "~/.emacs.d/settings/packages")
 
-
-(defvar module-dir  "~/.emacs.d/settings/modules")
-
-(defun load-user-file (file)
+(defun load-user-package (file)
   (interactive "f")
-  (load-file (expand-file-name file module-dir)))
+  (load-file (expand-file-name file package-dir)))
 
-(load-user-file "company.el")
-(load-user-file "all-the-icons.el")
-(load-user-file "neotree.el")
-(load-user-file "yasnippet.el")
-(load-user-file "projectile.el")
-(load-user-file "yafolding.el")
-(load-user-file "helm.el")
-(load-user-file "magit.el")
-(load-user-file "flycheck.el")
-(load-user-file "web-mode.el")
-(load-user-file "web-beautify.el")
-(load-user-file "emmet-mode.el")
-(load-user-file "python.el")
-(load-user-file "multiple-cursors.el")
-(load-user-file "smart-tabs-mode.el")
-(load-user-file "fonts.el")
-
+(load-user-package "company.el")
+(load-user-package "all-the-icons.el")
+(load-user-package "neotree.el")
+(load-user-package "yasnippet.el")
+(load-user-package "projectile.el")
+(load-user-package "yafolding.el")
+(load-user-package "helm.el")
+(load-user-package "magit.el")
+(load-user-package "flycheck.el")
+(load-user-package "web-mode.el")
+(load-user-package "web-beautify.el")
+(load-user-package "emmet-mode.el")
+(load-user-package "python.el")
+(load-user-package "multiple-cursors.el")
+(load-user-package "smart-tabs-mode.el")
+(load-user-package "fonts.el")
+(load-user-package "hydra.el")
+(load-user-package "google-this.el")
 
 (defvar themes-dir  "~/.emacs.d/settings/themes")
 
@@ -82,5 +52,5 @@
 (load-user-theme "monokai-theme.el")
 (load-user-theme "waher.el")
 (load-user-theme "material.el")
-
+ 
 (provide 'my_packages)

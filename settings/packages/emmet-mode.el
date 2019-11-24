@@ -1,6 +1,6 @@
 (use-package emmet-mode
   :diminish (emmet-mode . "ε")
-  :bind*  (("C-)" . emmet-next-edit-point)
+  :bind  (("C-)" . emmet-next-edit-point)
           ("C-(" . emmet-prev-edit-point)
           ("C-b" . emmet-expand-line)
 )

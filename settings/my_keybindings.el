@@ -1,7 +1,5 @@
 ;; keybindings
 
-;; TAB
-
 ;; tab indent or complete
 (defun check-expansion ()
   (save-excursion
@@ -31,44 +29,34 @@
 (global-set-key (kbd "<backtab>") 'tab-indent-or-complete)
 
 ;; Switch window
-(global-set-key (kbd "M-o") 'other-window)
-;; Up
-(global-unset-key (kbd "C-i"))
-(global-set-key (kbd "C-i") 'previous-line)
-;; Right
-(global-unset-key (kbd "C-f"))
-(global-unset-key (kbd "C-k"))
-(global-set-key (kbd "C-k") 'next-line)
-(global-set-key (kbd "C-.") 'right-char)
-;; Left
-(global-unset-key (kbd "C-b"))
-(global-unset-key (kbd "C-j"))
-(global-set-key (kbd "C-j") 'backward-char)
-(global-set-key (kbd "C-,") 'left-char)
-;; Down
-(global-unset-key (kbd "C-l"))
-(global-set-key (kbd "C-l") 'forward-char)
-;; Right word
-(global-unset-key (kbd "C-o"))
-(global-set-key (kbd "C-o") 'forward-word)
-;; Left word
-(global-unset-key (kbd "C-u"))
-(global-set-key (kbd "C-u") 'backward-word)
+(bind-key* "M-o" 'other-window)
 
-;; Uppercase word
-(global-set-key (kbd "C-c u") 'upcase-word)
+;; Moving
+(bind-key* "C-i" 'previous-line)
+(bind-key* "C-j" 'backward-char)
+(bind-key* "C-k" 'next-line)
+(bind-key* "C-l" 'forward-char)
+
+(bind-key* "C-," 'left-char)
+(bind-key* "C-." 'right-char)
+
+(bind-key* "C-o" 'forward-word)
+
+(bind-key* "C-u" 'backward-word)
 
 ;; Yank
 (global-unset-key (kbd "C-v"))
 (global-unset-key (kbd "C-y"))
-(global-set-key (kbd "C-v") 'yank)
+
+(bind-key* "C-v" 'yank)
+
 (global-set-key (kbd "C-y") 'scroll-up-command)
 
 (global-set-key (kbd "C-x C-b") 'electric-buffer-list)
 
 ;; Undo
 (global-unset-key (kbd "C-z"))
-(global-set-key (kbd "C-z") 'undo)
+(bind-key* "C-z" 'undo)
             
 ;; Move text
 (defun move-text-internal (arg)
@@ -154,6 +142,12 @@
 (global-set-key (kbd "RET") 'newline)
 (global-set-key (kbd "M-RET") 'newline-and-indent)
 
+(defun end-of-line-and-indented-new-line ()
+  (interactive)
+  (end-of-line)
+  (newline-and-indent))
+
+(bind-key* "<S-return>" 'end-of-line-and-indented-new-line)
 
 ;; reload emacs configuration
 (defun reload-init-file ()

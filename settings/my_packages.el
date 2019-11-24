@@ -13,6 +13,7 @@
 (require 'use-package)
 (setq use-package-always-ensure t)
 
+;; Packages
 (defvar package-dir  "~/.emacs.d/settings/packages")
 
 (defun load-user-package (file)
@@ -38,13 +39,13 @@
 (load-user-package "hydra.el")
 (load-user-package "google-this.el")
 
+;; Themes
 (defvar themes-dir  "~/.emacs.d/settings/themes")
 
 (defun load-user-theme (file)
   (interactive "f")
   (load-file (expand-file-name file themes-dir)))
 
-;;Themes
 (load-user-theme "switch-theme.el")
 
 (load-user-theme "cyberpank-theme.el")
@@ -52,5 +53,14 @@
 (load-user-theme "monokai-theme.el")
 (load-user-theme "waher.el")
 (load-user-theme "material.el")
- 
+(load-user-theme "zerodark-theme.el")
+(load-user-theme "moe-theme.el")
+(load-user-theme "seti-theme.el")
+(load-user-theme "green-screen-theme.el")
+(load-user-theme "grandshell-theme.el")
+(load-user-theme "ample-theme.el")
+(load-user-theme "abyss-theme.el")
+(load-user-theme "dark-mint-theme.el")
+(load-user-theme "firecode-theme.el")
+
 (provide 'my_packages)

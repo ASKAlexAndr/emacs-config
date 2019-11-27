@@ -61,8 +61,9 @@
 (prefer-coding-system                   'utf-8)
 
 ;; Line numbers
-(global-display-line-numbers-mode)
-(setq-default display-line-numbers t)
+;;(setq-default global-display-line-numbers-mode nil)
+;;(setq-default display-line-numbers nil)
+(global-linum-mode)
 
 (setq split-height-threshold  nil
       split-width-threshold   0)

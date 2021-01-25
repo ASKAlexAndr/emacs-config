@@ -21,3 +21,4 @@ el-get
 *.desktop
 .emacs.desktop.lock
 projectile-bookmarks.eld
+fonts/

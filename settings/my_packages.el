@@ -20,23 +20,23 @@
   (interactive "f")
   (load-file (expand-file-name file package-dir)))
 
-(load-user-package "company.el")
+(load-user-package "company.el") ;; Автозаполнение
 (load-user-package "all-the-icons.el")
-(load-user-package "neotree.el")
+(load-user-package "neotree.el") 
 (load-user-package "yasnippet.el")
 (load-user-package "projectile.el")
-(load-user-package "yafolding.el")
-(load-user-package "helm.el")
+(load-user-package "yafolding.el") ;; Сворачивание частей кода
+(load-user-package "helm.el") ;;  https://emacs-helm.github.io/helm/
 (load-user-package "magit.el")
-(load-user-package "flycheck.el")
-(load-user-package "web-mode.el")
-(load-user-package "web-beautify.el")
+(load-user-package "flycheck.el") ;; Проверка синтаксиса
+(load-user-package "web-mode.el") ;; https://web-mode.org/
+(load-user-package "web-beautify.el") ;; HTML, CSS, and JavaScript/JSON formatting
 (load-user-package "emmet-mode.el")
 (load-user-package "multiple-cursors.el")
 (load-user-package "smart-tabs-mode.el")
-(load-user-package "python.el")
+(load-user-package "python.el") 
 (load-user-package "fonts.el")
-(load-user-package "hydra.el")
+(load-user-package "hydra.el") ;; Повторы команд
 (load-user-package "google-this.el")
 
 ;; Themes
